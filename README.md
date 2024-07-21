@@ -24,13 +24,13 @@ Follow these steps to set up the project locally:
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/aryanbamane/voice-enabled-map-ui.git
-   cd voice-enabled-map-ui
+   git clone https://github.com/aryan2bamane/FinalYearProject.git
+   cd ./MapApp
    ```
 
 2. **Install dependencies**:
    ```bash
-   npm install
+   npm i
    ```
 
 3. **Run the development server**:
@@ -38,7 +38,7 @@ Follow these steps to set up the project locally:
    npm run dev
    ```
 
-4. **Open your browser** and navigate to `http://localhost:3000`.
+4. **Open your browser** and navigate to `http://localhost:5173`.
 
 ## Voice Commands
 
