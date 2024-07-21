@@ -67,17 +67,3 @@ Contributions are welcome! Please follow these steps to contribute:
 4. Push to the branch (`git push origin feature-branch`).
 5. Create a pull request.
 
-## Author
-
-**Aryan Bamane**  
-- [LinkedIn](https://linkedin.com/in/aryan-bamane)
-- [Email](mailto:aryanbamane2@gmail.com)
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
-
-## Acknowledgments
-
-- Thanks to the contributors of React, Leaflet, and Vite for their amazing libraries.
-- Special thanks to the developers of the Web Speech API.
