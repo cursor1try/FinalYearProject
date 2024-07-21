@@ -29,17 +29,15 @@ const VoiceControl = ({ micEnabled }) => {
 
       const currentCenter = map.getCenter();
       const panOffset = 0.01; // Adjust this value to control the pan distance
+      map.panTo([currentCenter.lat, currentCenter.lng + panOffset]);
 
       if (transcript.includes("zoom in")) {
         map.setZoom(map.getZoom() + 1);
       } else if (transcript.includes("zoom out")) {
         map.setZoom(map.getZoom() - 1);
       } else if (transcript.includes("centro")) {
-        map.setView([51.505, -0.09], 13); // Set to default center
-      } else if (
-        transcript.includes("move right") ||
-        transcript.includes("moonlight")
-      ) {
+        map.setView([22.5937, 78.9629], 5); // Set to center on India
+      } else if (transcript.includes("move right")) {
         map.panTo([currentCenter.lat, currentCenter.lng + panOffset]);
       } else if (transcript.includes("move left")) {
         map.panTo([currentCenter.lat, currentCenter.lng - panOffset]);
@@ -54,7 +52,7 @@ const VoiceControl = ({ micEnabled }) => {
     recognition.onerror = (event) => {
       console.error("Speech recognition error:", event.error);
       if (event.error === "aborted" && micEnabled) {
-        recognition.start();
+        recognition.start(); // Restart recognition if aborted and mic is enabled
       }
     };
 

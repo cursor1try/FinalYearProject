@@ -8,7 +8,6 @@ const MapComponent = () => {
 
   const toggleMic = () => {
     micEnabled ? console.log("Mic is Off") : console.log("Mic is On");
-
     setMicEnabled((prevState) => !prevState);
   };
 
