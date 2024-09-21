@@ -43,7 +43,7 @@ const VoiceControl = ({ micEnabled }) => {
       });
       try {
         const response = await fetch(
-          `https://nominatim.openstreetmap.org/search?format=json&q=${city}`
+          `https://nominatim.openstreetmap.org/search?format=json&q=${city}&limit=1&format=json&addressdetails=1`
         );
         const data = await response.json();
 
@@ -71,6 +71,35 @@ const VoiceControl = ({ micEnabled }) => {
         console.error("Geocoding error:", error);
       }
     };
+
+    const addMarker = function(city) {
+      var markerUrl = "https://nominatim.openstreetmap.org/search?q=" + city + "&format=json&limit=1";
+      $.ajax({
+          url: markerUrl,
+          dataType: "json",
+          success: function(data) {
+              var lat = data[0].lat;
+              var lon = data[0].lon;
+              var marker = L.marker([lat, lon]).addTo(map).bindPopup(city).openPopup();
+              markersArray.push(marker); // Store marker in array
+              addToHistory('Mark ' + city);
+          }
+      });
+  };
+  
+  const removeMarker = function(city) {
+      map.eachLayer(function(layer) {
+          if (layer instanceof L.Marker && layer.getPopup().getContent() === city) {
+              map.removeLayer(layer);
+              addToHistory('Unmark ' + city);
+          }
+      });
+      // Remove from markersArray as well
+      markersArray = markersArray.filter(marker => marker.getPopup().getContent() !== city);
+  };
+  
+
+
 
     recognition.onresult = (event) => {
       // map.setView([22.5937, 78.9629], 5);
