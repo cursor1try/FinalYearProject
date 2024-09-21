@@ -1,48 +1,49 @@
-
 # Voice Enabled Map UI
 
-Welcome to the **Voice Enabled Map UI** project! This application leverages modern web technologies to provide a dynamic map experience with voice command functionalities. Built with React, Leaflet, and Vite, this project allows users to navigate and control the map using simple voice commands.
+Welcome to the **Voice Enabled Map UI** project! This application utilizes modern web technologies to create an interactive map experience that responds to voice commands.
 
 ## Features
 
-- **Voice Commands**: Control the map with voice commands like "zoom in," "zoom out," "move up," "move down," and more.
-- **Interactive Map**: Explore the map with intuitive drag-and-zoom capabilities.
-- **Responsive Design**: Enjoy a seamless experience on both desktop and mobile devices.
-- **Real-time Updates**: Voice commands take immediate effect, providing a responsive and interactive user experience.
-
+- **Voice Control**: Navigate the map effortlessly using voice commands such as "zoom in," "zoom out," "move up," and "move down."
+- **Interactive Map**: Experience a smooth and intuitive map interface with drag-and-zoom functionality.
+- **Responsive Design**: The application adapts seamlessly to both desktop and mobile devices.
+- **Instant Feedback**: Voice commands are processed in real-time for a dynamic user experience.
 
 ## Technologies Used
 
-- **React**: A JavaScript library for building user interfaces.
-- **Leaflet**: An open-source JavaScript library for mobile-friendly interactive maps.
-- **Vite**: A fast build tool and development server for modern web projects.
-- **Web Speech API**: Provides the ability to recognize voice input and handle speech recognition.
+- **React**: A powerful library for building user interfaces.
+- **Leaflet**: An open-source library for mobile-friendly interactive maps.
+- **Vite**: A fast build tool and development server that enhances the development process.
+- **Web Speech API**: Enables voice recognition for a hands-free interaction.
 
 ## Getting Started
 
-Follow these steps to set up the project locally:
+To set up the project locally, follow these steps:
 
 1. **Clone the repository**:
+
    ```bash
    git clone https://github.com/aryan2bamane/FinalYearProject.git
    cd ./MapApp
    ```
 
 2. **Install dependencies**:
+
    ```bash
-   npm i
+   pip install -r requirements.txt
    ```
 
-3. **Run the development server**:
+3. **Run the application**:
+
    ```bash
-   npm run dev
+   python app.py
    ```
 
-4. **Open your browser** and navigate to `http://localhost:5173`.
+4. **Open your browser** and go to `http://127.0.0.1:5000/`.
 
 ## Voice Commands
 
-Here are some of the voice commands you can use:
+Here are some useful voice commands you can try:
 
 - **Zooming**:
   - "zoom in"
@@ -54,16 +55,14 @@ Here are some of the voice commands you can use:
   - "move left"
   - "move right"
 
-- **Reset View**:
-  - "centro" (resets to the default center)
-
 ## Contributing
 
-Contributions are welcome! Please follow these steps to contribute:
+We welcome contributions! To get involved:
 
 1. Fork the repository.
 2. Create a new branch (`git checkout -b feature-branch`).
-3. Make your changes and commit them (`git commit -m 'Add new feature'`).
-4. Push to the branch (`git push origin feature-branch`).
-5. Create a pull request.
+3. Implement your changes and commit them (`git commit -m 'Add new feature'`).
+4. Push your branch to the repository (`git push origin feature-branch`).
+5. Open a pull request.
 
+Thank you for your interest in enhancing the Voice Enabled Map UI! Enjoy exploring the project and contributing to its development.
