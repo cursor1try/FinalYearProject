@@ -100,7 +100,6 @@ const MapComponent = () => {
           </BaseLayer>
         </LayersControl>
         <VoiceControl micEnabled={micEnabled} />
-        <CoordinatesDisplay /> {/* Add the CoordinatesDisplay component here */}
       </MapContainer>
     </div>
   );
