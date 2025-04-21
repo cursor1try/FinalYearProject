@@ -14,6 +14,10 @@ var roadLayer = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 });
 
+var terrainLayer = L.tileLayer("https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png", {
+    attribution: '&copy; <a href="https://opentopomap.org">OpenTopoMap</a> contributors',
+});
+
 // Add default layer (road layer instead of satellite)
 roadLayer.addTo(map);
 
@@ -60,10 +64,17 @@ layerOptions.forEach(option => {
         // Change map layer
         if (value === 'satellite') {
             map.removeLayer(roadLayer);
+            map.removeLayer(terrainLayer);
             satelliteLayer.addTo(map);
             currentLayer = 'satellite';
+        } else if (value === 'terrain') {
+            map.removeLayer(satelliteLayer);
+            map.removeLayer(roadLayer);
+            terrainLayer.addTo(map);
+            currentLayer = 'terrain';
         } else {
             map.removeLayer(satelliteLayer);
+            map.removeLayer(terrainLayer);
             roadLayer.addTo(map);
             currentLayer = 'road';
         }
@@ -179,10 +190,12 @@ function toggleLayer(layerName, show) {
         case 'satellite':
             if (show) {
                 map.removeLayer(roadLayer);
+                map.removeLayer(terrainLayer);
                 satelliteLayer.addTo(map);
                 currentLayer = 'satellite';
                 document.querySelector('.layer-option[data-value="satellite"]').classList.add('selected');
                 document.querySelector('.layer-option[data-value="road"]').classList.remove('selected');
+                document.querySelector('.layer-option[data-value="terrain"]').classList.remove('selected');
                 selectedLayerText.textContent = 'Satellite View';
             } else {
                 map.removeLayer(satelliteLayer);
@@ -190,16 +203,19 @@ function toggleLayer(layerName, show) {
                 currentLayer = 'road';
                 document.querySelector('.layer-option[data-value="road"]').classList.add('selected');
                 document.querySelector('.layer-option[data-value="satellite"]').classList.remove('selected');
+                document.querySelector('.layer-option[data-value="terrain"]').classList.remove('selected');
                 selectedLayerText.textContent = 'Road Layer';
             }
             break;
         case 'road':
             if (show) {
                 map.removeLayer(satelliteLayer);
+                map.removeLayer(terrainLayer);
                 roadLayer.addTo(map);
                 currentLayer = 'road';
                 document.querySelector('.layer-option[data-value="road"]').classList.add('selected');
                 document.querySelector('.layer-option[data-value="satellite"]').classList.remove('selected');
+                document.querySelector('.layer-option[data-value="terrain"]').classList.remove('selected');
                 selectedLayerText.textContent = 'Road Layer';
             } else {
                 map.removeLayer(roadLayer);
@@ -207,7 +223,28 @@ function toggleLayer(layerName, show) {
                 currentLayer = 'satellite';
                 document.querySelector('.layer-option[data-value="satellite"]').classList.add('selected');
                 document.querySelector('.layer-option[data-value="road"]').classList.remove('selected');
+                document.querySelector('.layer-option[data-value="terrain"]').classList.remove('selected');
                 selectedLayerText.textContent = 'Satellite View';
+            }
+            break;
+        case 'terrain':
+            if (show) {
+                map.removeLayer(satelliteLayer);
+                map.removeLayer(roadLayer);
+                terrainLayer.addTo(map);
+                currentLayer = 'terrain';
+                document.querySelector('.layer-option[data-value="terrain"]').classList.add('selected');
+                document.querySelector('.layer-option[data-value="satellite"]').classList.remove('selected');
+                document.querySelector('.layer-option[data-value="road"]').classList.remove('selected');
+                selectedLayerText.textContent = 'Terrain View';
+            } else {
+                map.removeLayer(terrainLayer);
+                roadLayer.addTo(map);
+                currentLayer = 'road';
+                document.querySelector('.layer-option[data-value="road"]').classList.add('selected');
+                document.querySelector('.layer-option[data-value="satellite"]').classList.remove('selected');
+                document.querySelector('.layer-option[data-value="terrain"]').classList.remove('selected');
+                selectedLayerText.textContent = 'Road Layer';
             }
             break;
     }
