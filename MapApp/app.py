@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 from flask_socketio import SocketIO, emit
 from geopy.geocoders import Nominatim
+import os
 
 import speech_recognition as sr
 import re
@@ -128,5 +129,7 @@ def handle_recognition():
         print(f"Error processing command: {e}")
         emit('recognized_command', {'error': 'Error processing command'})
 
+
 if __name__ == '__main__':
-    socketio.run(app, debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    socketio.run(app, host='0.0.0.0', port=port)
