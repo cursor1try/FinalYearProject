@@ -1,16 +1,16 @@
 scipy==1.11.4
-matplotlib==3.8.4
+matplotlib==3.8.4          # Use this, not 3.9+, since ydata-profiling <4.6.4 needs <3.9
 pandas==2.2.3
-ydata-profiling==4.6.4
+ydata-profiling==4.6.4     # This conflicts with matplotlib>=3.9
 jax==0.4.30
 jaxlib==0.4.30
 tensorflow==2.17.0
-numpy==1.23.5
+numpy==1.23.5              # OK for TensorFlow and JAX
 Flask==3.0.3
 requests==2.32.3
 pyyaml==6.0.2
 Flask-Cors==5.0.0
 Flask-SocketIO==5.3.7
-gunicorn==20.1.0
-
 geopy==2.4.1
+SpeechRecognition==3.10.4
+eventlet==0.33.3
